@@ -1,0 +1,20 @@
+# depslib dependency file v1.0
+1530198330 source:c:\users\leoto\desktop\v3\jogo algprog\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+	<direct.h>
+
+1530198260 source:c:\users\leoto\desktop\v3\jogo algprog\main.c
+	"functions.c"
+
+1530198330 c:\users\leoto\desktop\v3\jogo algprog\functions.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+	<stdlib.h>
+	<windows.h>
+	<direct.h>
+
