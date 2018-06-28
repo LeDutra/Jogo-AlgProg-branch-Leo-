@@ -35,8 +35,13 @@ unsigned char matriz[LINHAS][COLUNAS] =
 
 void posiciona_nave(int *pos, int deltaX)
 {
-    if((pos[0]+deltaX)>1&&(pos[0]+deltaX)<COLUNAS-2)
-        pos[0]=pos[0]+deltaX;
+//    if((pos[0]+deltaX)>1&&(pos[0]+deltaX)<COLUNAS-2)
+    if(deltaX > 0)
+        if(pos[0]+3 != '\0' && pos[0]+3 <COLUNAS-2)
+            pos[0]=pos[0]+deltaX;
+    if(deltaX < 0)
+        if(pos[0]-3 != '\0')
+            pos[0]=pos[0]+deltaX;
     matriz[pos[1]-1][pos[0]-1]=' ';
     matriz[pos[1]-1][pos[0]  ]='|';
     matriz[pos[1]-1][pos[0]+1]=' ';
