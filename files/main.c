@@ -22,8 +22,10 @@ int main()
         deltaTempo=time(NULL)-tempo;
         ajusta_energia(deltaTempo);
         system("cls");
-        imprime_tela();
+        imprime_tela(deltaTempo);
+        if(deltaTempo == 35 || deltaTempo == 37 || deltaTempo == 39)
+            PlaySoundA(TEXT("sounds/alarm.wav"), NULL, SND_ASYNC);
     }
-    printf("A energia acabou");
+    tela_game_over();
     return 0;
 }

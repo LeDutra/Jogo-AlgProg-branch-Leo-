@@ -14,3 +14,4 @@ void setcolor(int color);
 void ret_color();
 void colorfn();
 void gotoxy(short x, short y);
+void tela_game_over();

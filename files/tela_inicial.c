@@ -7,6 +7,8 @@ int tela_inicial()
 
     colorfn();
 
+    PlaySoundA(TEXT("sounds/menu.wav"), NULL, SND_ASYNC);
+
     for(u=1; u<=77; u++)
     {
         gotoxy(u,2);
@@ -63,6 +65,8 @@ int tela_inicial()
         Sleep(500);
     }
     while(!kbhit());
+
+    PlaySoundA(TEXT("sounds/start.wav"), NULL, SND_ASYNC);
 
     system("cls");
 

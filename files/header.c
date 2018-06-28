@@ -8,6 +8,7 @@
 #include <locale.h>
 #include <fcntl.h>
 #include <io.h>
+#include <mmsystem.h>
 #define VAR_INI 177
 #define LINHAS 24
 #define COLUNAS 81
