@@ -4,6 +4,11 @@
 #include <stdlib.h>
 #include <windows.h>
 #include <direct.h>
+#include <time.h>
+#include <locale.h>
+#include <fcntl.h>
+#include <io.h>
+#define VAR_INI 177
 #define LINHAS 24
 #define COLUNAS 81
 #define CANHAO 2
