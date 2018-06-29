@@ -5,12 +5,23 @@
 int main()
 {
 
+    typedef struct st_inimigos
+    {
+        char status;
+        int posx;
+        int posy;
+        int tamanho;
+    } inimigos;
+
     int tempo, deltaTempo=0;
     int nave[3]= {navePOSX,navePOSY,naveDeltaVx};
     int tiro[3]= {tiroPOSX,tiroPOSY,tiroStatus};
     int flag_quit = 1;
     int flag_morte = 1;
     int flag_pause = 0;
+    char pause = 'a';
+    inimigos inimigo[20];
+
 
     tela_inicial();
     do
@@ -23,7 +34,6 @@ int main()
                 leitura_teclado(nave,tiro, &flag_quit, &flag_pause);
             else
                 movimenta(nave,0);
-//            system("cls");
             atirar(nave,tiro);
             posiciona_nave(nave,0);
             deltaTempo=time(NULL)-tempo;
@@ -32,17 +42,25 @@ int main()
             if(flag_pause)
             {
                 PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_ASYNC);
-                gotoxy(18, 12);
+                gotoxy(24, 9);
                 colorfn();
-                printf("Pausado! Pressione qualquer tecla para voltar");
-                gotoxy(22, 13);
+                printf("Pausado! Pressione P para voltar");
+                gotoxy(23, 10);
                 printf("ou pressione ESC para sair do jogo");
-                while(!kbhit())
+                do
                 {
-                    Sleep(1000);
-                    tempo++;
+                    while(!kbhit())
+                    {
+                        Sleep(1000);
+                        tempo++;
+                    }
+                    pause = getch();
                 }
-                PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_SYNC);
+                while(pause != 'p' && pause != 'P' && pause != 27);
+                if(pause == 27)
+                    flag_quit = 0;
+                else
+                    PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_SYNC);
                 flag_pause=0;
             }
             if(deltaTempo == 35 || deltaTempo == 37 || deltaTempo == 39)

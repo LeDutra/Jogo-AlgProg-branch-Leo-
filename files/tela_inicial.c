@@ -67,11 +67,12 @@ int tela_inicial()
         printf("Pressione qualquer tecla para iniciar!");
         hidecursor();
         Sleep(500);
-        if(!kbhit()){
-        gotoxy(20,23);
-        printf("                                          ");
-        hidecursor();
-        Sleep(500);
+        if(!kbhit())
+        {
+            gotoxy(20,23);
+            printf("                                          ");
+            hidecursor();
+            Sleep(500);
         }
     }
     while(!kbhit());
@@ -80,5 +81,5 @@ int tela_inicial()
     system("cls");
     Sleep(500);
 
-return 0;
+    return 0;
 }

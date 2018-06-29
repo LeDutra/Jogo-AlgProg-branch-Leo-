@@ -31,13 +31,6 @@ unsigned char matriz[LINHAS][COLUNAS] =
     200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188,'\0'
 };
 
-typedef struct struct_inimigo
-{
-    int posx;
-    int posy;
-
-} inimigo;
-
 // Funções:
 
 void posiciona_nave(int *pos, int deltaX)
@@ -238,7 +231,7 @@ int diminui_vida()
     else
         flag = 0;
 
-return flag;
+    return flag;
 }
 
 void limpa_matriz()
