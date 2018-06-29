@@ -9,7 +9,8 @@
 #include <fcntl.h>
 #include <io.h>
 #include <mmsystem.h>
-#define VAR_INI 177
+#define VAR_INI '*'
+#define VAR_COL 177
 #define LINHAS 24
 #define COLUNAS 81
 #define CANHAO 2

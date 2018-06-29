@@ -73,13 +73,13 @@ void imprime_tela(int deltaTempo)
             if(deltaTempo >= 35 && deltaTempo % 2 == 1)
                 setcolor(4);
             else
-                setcolor(14);
+                setcolor(10);
             gotoxy(0, alt);
             printf("%s", matriz[alt]);
         }
         else
         {
-            setcolor(10);
+            setcolor(14);
             gotoxy(0, alt);
             printf("%s", matriz[alt]);
         }
