@@ -57,7 +57,7 @@
 1530215793 source:c:\users\leoto\desktop\v3\jogo algprog\files\matriz.c
 	"header.c"
 
-1530230233 source:c:\users\leoto\desktop\v3\jogo algprog\files\main.c
+1530240584 source:c:\users\leoto\desktop\v3\jogo algprog\files\main.c
 	"header.c"
 	"libraries/custom_bibl.h"
 	"prototypes.c"
@@ -77,7 +77,7 @@
 
 1530211710 c:\users\leoto\desktop\v3\jogo algprog\files\libraries\custom_bibl.h
 
-1530222974 source:c:\users\leoto\desktop\v3\jogo algprog\files\tela_inicial.c
+1530239217 source:c:\users\leoto\desktop\v3\jogo algprog\files\tela_inicial.c
 	"header.c"
 	"prototypes.c"
 
@@ -86,10 +86,10 @@
 1530216002 source:c:\users\leoto\desktop\v3\jogo algprog\files\movimentacao.c
 	"header.c"
 
-1530223809 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
+1530240885 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
 	"header.c"
 
-1530223809 c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
+1530240885 c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
 	"header.c"
 
 1530216650 source:c:\users\leoto\desktop\v3\jogo algprog\files\matrix.c
@@ -98,7 +98,7 @@
 1530217826 source:c:\users\leoto\desktop\v3\jogo algprog\files\functions_and_matriz.c
 	"header.c"
 
-1530230144 source:c:\users\leoto\desktop\v3\jogo algprog\files\funcoes_e_matriz.c
+1530240966 source:c:\users\leoto\desktop\v3\jogo algprog\files\funcoes_e_matriz.c
 	"header.c"
 	"prototypes.c"
 

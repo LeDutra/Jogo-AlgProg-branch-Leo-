@@ -25,7 +25,7 @@
 		</Compiler>
 		<Unit filename="files/funcoes_e_matriz.c">
 			<Option compilerVar="CC" />
-			<Option virtualFolder="Main/" />
+			<Option virtualFolder="Inicialização/" />
 		</Unit>
 		<Unit filename="files/game_over.c">
 			<Option compilerVar="CC" />

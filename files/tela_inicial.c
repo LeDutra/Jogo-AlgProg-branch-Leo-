@@ -7,7 +7,7 @@ int tela_inicial()
 
     colorfn();
 
-    PlaySoundA(TEXT("sounds/menu.wav"), NULL, SND_ASYNC);
+    PlaySoundA(TEXT("sounds/music2.wav"), NULL, SND_ASYNC);
 
     for(u=1; u<=77; u++)
     {
@@ -35,7 +35,7 @@ int tela_inicial()
 
     gotoxy(30,6);
     setcolor(14);
-    printf("Megamania C v0.6");
+    printf("Megamania C v0.9");
     setcolor(11);
     gotoxy(15,8);
     printf("Trabalho final de Algoritmos de Programacao 18/1");
@@ -48,7 +48,7 @@ int tela_inicial()
     gotoxy(10,18);
     printf("Barra de espaco, W ou seta pra cima = Tiro");
     gotoxy(10,19);
-    printf("Para sair do jogo a qualquer momento, pressione U");
+    printf("Para sair do jogo a qualquer momento, pressione ESC");
     gotoxy(3,27);
     printf("Desenvolvido e programado por Leonardo D. e Frederico S.");
 
@@ -67,6 +67,7 @@ int tela_inicial()
     while(!kbhit());
 
     PlaySoundA(TEXT("sounds/start.wav"), NULL, SND_ASYNC);
+    Sleep(500);
 
     system("cls");
 
