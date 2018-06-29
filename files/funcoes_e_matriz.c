@@ -116,17 +116,21 @@ void movimenta(int *nave, int deltaV)
     {
         for(i=0; i<nave[2]; i++)
             posiciona_nave(nave,1);
+        nave[2]=0;
     }
     else
     {
         for(i=0; i>nave[2]; i--)
             posiciona_nave(nave,-1);
+        nave[2]=0;
     }
 }
 
 void leitura_teclado(int *nave, int *tiro)
 {
     unsigned char a;
+
+    int velocidade = 1;
 
     a=getch();
     if(a==0||a==0XE0)
@@ -136,7 +140,7 @@ void leitura_teclado(int *nave, int *tiro)
     case 75:
     case 65:
     case 97:
-        movimenta(nave,-1);
+        movimenta(nave,-velocidade);
         break;
     case 72:
         tiro[2]=1;
@@ -144,7 +148,7 @@ void leitura_teclado(int *nave, int *tiro)
     case 77:
     case 68:
     case 100:
-        movimenta(nave,1);
+        movimenta(nave,velocidade);
         break;
     case 87:
     case 119:
