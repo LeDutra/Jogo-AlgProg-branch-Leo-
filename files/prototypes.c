@@ -8,7 +8,7 @@ void ajusta_energia(int tempo);
 void imprime_tela();
 void atirar(int *nave, int *tiro);
 void movimenta(int *nave, int deltaV);
-void leitura_teclado(int *nave, int *tiro, int *flag);
+void leitura_teclado(int *nave, int *tiro, int *flag, int *flag_pause);
 void hidecursor();
 void setcolor(int color);
 void ret_color();

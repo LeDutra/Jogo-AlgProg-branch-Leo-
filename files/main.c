@@ -10,6 +10,7 @@ int main()
     int tiro[3]= {tiroPOSX,tiroPOSY,tiroStatus};
     int flag_quit = 1;
     int flag_morte = 1;
+    int flag_pause = 0;
 
     tela_inicial();
     do
@@ -19,7 +20,7 @@ int main()
         while(deltaTempo<40&&flag_quit&&flag_morte)
         {
             if(kbhit())
-                leitura_teclado(nave,tiro, &flag_quit);
+                leitura_teclado(nave,tiro, &flag_quit, &flag_pause);
             else
                 movimenta(nave,0);
 //            system("cls");
@@ -28,6 +29,22 @@ int main()
             deltaTempo=time(NULL)-tempo;
             ajusta_energia(deltaTempo);
             imprime_tela(deltaTempo);
+            if(flag_pause)
+            {
+                PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_ASYNC);
+                gotoxy(18, 12);
+                colorfn();
+                printf("Pausado! Pressione qualquer tecla para voltar");
+                gotoxy(22, 13);
+                printf("ou pressione ESC para sair do jogo");
+                while(!kbhit())
+                {
+                    Sleep(1000);
+                    tempo++;
+                }
+                PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_SYNC);
+                flag_pause=0;
+            }
             if(deltaTempo == 35 || deltaTempo == 37 || deltaTempo == 39)
                 PlaySoundA(TEXT("sounds/alarm.wav"), NULL, SND_ASYNC);
             Sleep(17);

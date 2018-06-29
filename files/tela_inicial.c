@@ -7,7 +7,7 @@ int tela_inicial()
 
     colorfn();
 
-    PlaySoundA(TEXT("sounds/music2.wav"), NULL, SND_ASYNC);
+    PlaySoundA(TEXT("sounds/tsr.wav"), NULL, SND_ASYNC);
 
     for(u=1; u<=77; u++)
     {
@@ -76,7 +76,7 @@ int tela_inicial()
     }
     while(!kbhit());
 
-    PlaySoundA(TEXT("sounds/start.wav"), NULL, SND_ASYNC);
+    PlaySoundA(TEXT("sounds/coin.wav"), NULL, SND_ASYNC);
     system("cls");
     Sleep(500);
 
