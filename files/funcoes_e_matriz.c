@@ -74,17 +74,18 @@ void imprime_tela(int deltaTempo)
                 setcolor(4);
             else
                 setcolor(14);
+            gotoxy(0, alt);
             printf("%s", matriz[alt]);
-            printf("\n");
-            hidecursor();
-            setcolor(10);
         }
         else
         {
+            setcolor(10);
+            gotoxy(0, alt);
             printf("%s", matriz[alt]);
-            printf("\n");
-            hidecursor();
         }
+        hidecursor();
+        printf("\n");
+        hidecursor();
     }
 }
 
@@ -178,19 +179,20 @@ void anima_barra(int *nave)
 
     int i;
 
-    for(i=20; i< 60; i=i+2)
+    for(i=20; i< 60; i++)
     {
-        system("cls");
+//        system("cls");
         if(matriz[20][i] == 176)
             matriz[20][i] = 219;
-        if(matriz[20][i+1] == 176)
-            matriz[20][i+1] = 219;
+//        if(matriz[20][i+1] == 176)
+//            matriz[20][i+1] = 219;
         imprime_tela(0);
+        Sleep(50);
     }
 
     PlaySoundA(TEXT("sounds/tiro.wav"), NULL, SND_ASYNC);
 
-    system("cls");
+//    system("cls");
 }
 
 void limpa_barra()
@@ -208,7 +210,7 @@ void limpa_barra()
 
     imprime_tela(0);
 
-    system("cls");
+//    system("cls");
 
 }
 

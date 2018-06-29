@@ -22,14 +22,15 @@ int main()
                 leitura_teclado(nave,tiro, &flag_quit);
             else
                 movimenta(nave,0);
+//            system("cls");
             atirar(nave,tiro);
             posiciona_nave(nave,0);
             deltaTempo=time(NULL)-tempo;
             ajusta_energia(deltaTempo);
-            system("cls");
             imprime_tela(deltaTempo);
             if(deltaTempo == 35 || deltaTempo == 37 || deltaTempo == 39)
                 PlaySoundA(TEXT("sounds/alarm.wav"), NULL, SND_ASYNC);
+            Sleep(17);
         }
         if(deltaTempo>=40)
             PlaySoundA(TEXT("sounds/energy.wav"), NULL, SND_ASYNC);
