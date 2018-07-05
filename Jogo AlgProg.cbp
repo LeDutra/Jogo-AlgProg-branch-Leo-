@@ -39,6 +39,10 @@
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Main/" />
 		</Unit>
+		<Unit filename="files/prototipo_inimigos.c">
+			<Option compilerVar="CC" />
+			<Option virtualFolder="Inicialização/" />
+		</Unit>
 		<Unit filename="files/prototypes.c">
 			<Option compilerVar="CC" />
 			<Option virtualFolder="Inicialização/" />
