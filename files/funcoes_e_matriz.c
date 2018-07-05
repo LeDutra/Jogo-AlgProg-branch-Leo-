@@ -33,6 +33,49 @@ unsigned char matriz[LINHAS][COLUNAS] =
 
 // Funções:
 
+void coloca_inimigos(INIMIGOS *inimigo, int quant)
+{
+    int i;
+    for(i=0;i<quant;i++)
+    {
+        matriz[inimigo[i].posY][inimigo[i].posX]='X';
+    }
+}
+
+int le_inimigos(INIMIGOS *inimigo, char *nome)
+{
+    FILE *arq;
+    int posiX=0, posiY=0;
+    int i=0;
+    char buffer;
+    if((arq=fopen(nome,"r"))==NULL)
+        printf("Falha ao abrir o arquivo.");
+    else
+        while(!feof(arq))
+        {
+            buffer=fgetc(arq);
+            switch(buffer)
+            {
+            case '\n':
+                posiY++;
+                posiX=0;
+                break;
+            case 'X':
+                inimigo[i].posX=posiX;
+                inimigo[i].posY=posiY;
+                inimigo[i].status=1;
+                i++;
+            case ' ':
+                posiX++;
+                break;
+            default:
+                break;
+            }
+        }
+    fclose(arq);
+    return i;
+}
+
 void posiciona_nave(int *pos, int deltaX)
 {
 //    if((pos[0]+deltaX)>1&&(pos[0]+deltaX)<COLUNAS-2)

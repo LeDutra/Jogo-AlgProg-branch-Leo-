@@ -1,4 +1,5 @@
 #include "header.c"
+#include "prototipo_inimigos.c"
 
 // Protótipos:
 
@@ -19,3 +20,5 @@ void limpa_barra();
 void anima_barra(int *nave);
 int diminui_vida();
 void limpa_matriz();
+int le_inimigos(INIMIGOS *inimigo, char *nome);
+void coloca_inimigos(INIMIGOS *inimigo, int quant);

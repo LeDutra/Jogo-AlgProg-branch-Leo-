@@ -7,11 +7,10 @@ int main()
 
     typedef struct st_inimigos
     {
-        char status;
-        int posx;
-        int posy;
-        int tamanho;
-    } inimigos;
+        int posX;
+        int posY;
+        int status;
+    } INIMIGOS;
 
     int tempo, deltaTempo=0;
     int nave[3]= {navePOSX,navePOSY,naveDeltaVx};
@@ -19,11 +18,14 @@ int main()
     int flag_quit = 1;
     int flag_morte = 1;
     int flag_pause = 0;
+    int quant;
     char pause = 'a';
-    inimigos inimigo[20];
+    INIMIGOS inimigo[20];
 
 
     tela_inicial();
+    quant=le_inimigos(inimigo,"map_1.txt");
+    coloca_inimigos(inimigo,quant);
     do
     {
         anima_barra(nave);
