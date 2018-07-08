@@ -23,12 +23,12 @@ int main()
     INIMIGOS inimigo[20];
 
 
+    quant=le_inimigos(inimigo,"maps/map_1.txt");
     tela_inicial();
-    quant=le_inimigos(inimigo,"map_1.txt");
-    coloca_inimigos(inimigo,quant);
     do
     {
         anima_barra(nave);
+        coloca_inimigos(inimigo,quant);
         tempo=time(NULL);
         while(deltaTempo<40&&flag_quit&&flag_morte)
         {

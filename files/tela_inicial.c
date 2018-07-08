@@ -58,7 +58,7 @@ int tela_inicial()
     gotoxy(11,19);
     printf("Para sair do jogo a qualquer momento, pressione ESC");
     gotoxy(4,27);
-    printf("Desenvolvido e programado por Leonardo D. e Frederico S. p/ AlgProg");
+    printf("Desenvolvido e programado por Leonardo D. e Frederico M. p/ AlgProg");
 
     do
     {
