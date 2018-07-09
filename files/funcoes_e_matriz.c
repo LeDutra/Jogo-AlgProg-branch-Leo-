@@ -1,7 +1,7 @@
 #include "header.c"
 #include "prototypes.c"
 
-// Variáveis globais:
+// Variï¿½veis globais:
 
 unsigned char matriz[LINHAS][COLUNAS] =
 {
@@ -27,11 +27,112 @@ unsigned char matriz[LINHAS][COLUNAS] =
     201,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,187,'\0',
     186,' ',' ',' ',' ',' ',' ',' ',' ','E','n','e','r','g','i','a',':',' ',' ',186,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,176,186,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,'\0',
     186,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',204,205,205,205,205,205,205,205,205,205,205,205,203,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,185,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,'\0',
-    186,' ',' ',' ',' ',' ',' ',' ',' ',' ','V','i','d','a','s',':',' ',' ',' ',186,' ',' ',254,' ',' ',254,' ',' ',254,' ',' ',186,' ','P','o','n','t','u','a',135,132,'o',':',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,'\0',
+    186,' ',' ',' ',' ',' ',' ',' ',' ',' ','V','i','d','a','s',':',' ',' ',' ',186,' ',' ',254,' ',' ',254,' ',' ',254,' ',' ',186,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',' ',186,'\0',
     200,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,202,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,205,188,'\0'
 };
 
-// Funções:
+
+// Funï¿½ï¿½es:
+
+void imprime_inimigos(INIMIGOS *inimigo, int direcao, int quant)
+{
+    int i;
+
+    for(i=0;i<quant;i++)
+    {
+          inimigo[i].posX = inimigo[i].posX + direcao;
+          if ((inimigo[i].posX == 2)||(inimigo[i].posX == 78)||(inimigo[i].status==0))
+          {
+                matriz[inimigo[i].posY][inimigo[i].posX-3]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX-2]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX-1]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX  ]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX+1]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX+2]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX-3]=' ';
+                if (inimigo[i].posX == 2)
+                        inimigo[i].posX = 76;
+                if (inimigo[i].posX == 78)
+                        inimigo[i].posX = 3;
+          }
+          if (inimigo[i].status!=0)
+          {
+                matriz[inimigo[i].posY][inimigo[i].posX-3]=' ';
+                matriz[inimigo[i].posY][inimigo[i].posX-2]='x';
+                matriz[inimigo[i].posY][inimigo[i].posX-1]='x';
+                matriz[inimigo[i].posY][inimigo[i].posX  ]='x';
+                matriz[inimigo[i].posY][inimigo[i].posX+1]='x';
+                matriz[inimigo[i].posY][inimigo[i].posX+2]='x';
+                matriz[inimigo[i].posY][inimigo[i].posX-3]=' ';
+          }
+    }
+}
+
+void posiciona_inimigos(INIMIGOS *inimigo, int *fase, int quant)
+{
+
+  srand (time(NULL));
+
+  int sorteio;
+  int i;
+  int direcao;
+  int modulo;
+
+ sorteio = rand() % 10;
+
+  if(fase[0]==0)
+  {
+    direcao = 0;
+    modulo = 1;
+  }
+  else
+  {
+    modulo=fase[0];
+    if (fase[1]!=0)
+    {
+      direcao = fase[1];
+    }
+    else
+    {
+      if (sorteio==0)
+        fase[2] = 0 - fase[2];
+      direcao = fase[2];
+    }
+  }
+
+  for(i=0;i<modulo;i++)
+  {
+    imprime_inimigos(inimigo, direcao, quant);
+  }
+}
+
+int testa_tiro(INIMIGOS *inimigo, int quant, int *tiro, int pontos)
+{
+  int i;
+// tiro[1] == posY
+// tiro[0] == posX
+  for(i=0;i<quant;i++)
+  {
+      if(inimigo[i].posY == tiro[1] && inimigo[i].posX-2 <= tiro[0] && inimigo[i].posX+2 >= tiro[0])
+      {
+          inimigo[i].status = 0;
+          pontos+=20;
+      }
+  }
+  return pontos;
+}
+
+int testa_inimigos(INIMIGOS *inimigo, int quant)
+{
+  int i;
+  int flag_retorno = 0;
+
+  for(i=0;i<quant;i++)
+    if(inimigo[i].status == 1)
+      flag_retorno = 1;
+
+  return flag_retorno;
+}
 
 void coloca_inimigos(INIMIGOS *inimigo, int quant)
 {
@@ -42,27 +143,65 @@ void coloca_inimigos(INIMIGOS *inimigo, int quant)
     }
 }
 
-int le_inimigos(INIMIGOS *inimigo, char *nome)
+int le_inimigos(INIMIGOS *inimigo, char *nome, int *fase)
 {
     FILE *arq;
     int posiX=0, posiY=0;
     int i=0;
     char buffer;
     if((arq=fopen(nome,"r"))==NULL)
-        printf("Falha ao abrir o arquivo.");
+        printf("Falha ao abrir o arquivo.\n");
     else
         while(!feof(arq))
         {
             buffer=fgetc(arq);
             switch(buffer)
             {
+            case '0':
+                fase[0]=0;
+                break;
+            case '1':
+                fase[0]=1;
+                break;
+            case '2':
+                fase[0]=2;
+                break;
+            case '3':
+                fase[0]=3;
+                break;
+            case '4':
+                fase[0]=4;
+                break;
+            case '5':
+                fase[0]=5;
+                break;
+            case '6':
+                fase[0]=6;
+                break;
+            case '7':
+                fase[0]=7;
+                break;
+            case '8':
+                fase[0]=8;
+                break;
+            case '9':
+                fase[0]=9;
+                break;
+            case 'R':
+                fase[1]=1;
+                break;
+            case 'L':
+                fase[1]=-1;
+                break;
+            case 'B':
+                fase[2]=0;
+                break;
             case '\n':
                 posiY++;
                 posiX=0;
                 break;
-            case 'X':
             case 'x':
-                inimigo[i].posX=posiX;
+                inimigo[i].posX=posiX+2;
                 inimigo[i].posY=posiY;
                 inimigo[i].status=1;
                 i++;
@@ -79,12 +218,7 @@ int le_inimigos(INIMIGOS *inimigo, char *nome)
 
 void posiciona_nave(int *pos, int deltaX)
 {
-//    if((pos[0]+deltaX)>1&&(pos[0]+deltaX)<COLUNAS-2)
-    if(deltaX > 0)
-        if(pos[0]+3 != '\0' && pos[0]+3 <COLUNAS-2)
-            pos[0]=pos[0]+deltaX;
-    if(deltaX < 0)
-        if(pos[0]-3 != '\0')
+   if((pos[0]+deltaX)>3&&(pos[0]+deltaX)<COLUNAS-4)
             pos[0]=pos[0]+deltaX;
     matriz[pos[1]-1][pos[0]-1]=' ';
     matriz[pos[1]-1][pos[0]  ]='|';
@@ -95,7 +229,10 @@ void posiciona_nave(int *pos, int deltaX)
     matriz[pos[1]  ][pos[0]  ]='^';
     matriz[pos[1]  ][pos[0]+1]='-';
     matriz[pos[1]  ][pos[0]+2]='|';
-    matriz[pos[1]  ][pos[0]+3]=' ';
+    if(pos[0]==COLUNAS-4)
+        matriz[pos[1]  ][pos[0]+3]='\0';
+    else
+        matriz[pos[1]  ][pos[0]+3]=' ';
 }
 
 void ajusta_energia(int tempo)
@@ -130,25 +267,6 @@ void imprime_tela(int deltaTempo)
         hidecursor();
         printf("\n");
         hidecursor();
-    }
-}
-
-void atirar(int *nave, int *tiro)
-{
-    if(tiro[1] == 15 && tiro[2] > 0)
-        PlaySoundA(TEXT("sounds/tiro.wav"), NULL, SND_ASYNC);
-    matriz[tiro[1]][tiro[0]]=' ';
-    if(tiro[2]==1&&tiro[1]>0)
-    {
-        tiro[1]--;
-        tiro[0]=nave[0];
-        matriz[tiro[1]][tiro[0]]='|';
-    }
-    else
-    {
-        tiro[0]=nave[0];
-        tiro[1]=nave[1];
-        tiro[2]=0;
     }
 }
 
@@ -196,19 +314,15 @@ void leitura_teclado(int *nave, int *tiro, int *flag, int *flag_pause)
     case 97:
         movimenta(nave,-velocidade);
         break;
-    case 72:
-        tiro[2]=1;
-        break;
     case 77:
     case 68:
     case 100:
         movimenta(nave,velocidade);
         break;
+    case 72:
     case 87:
     case 119:
     case 32:
-        tiro[2]=1;
-        break;
     case 57:
         tiro[2]=1;
         break;
@@ -286,3 +400,81 @@ void limpa_matriz()
         for(j=0; j<COLUNAS-1; j++)
             matriz[i][j] = ' ';
 }
+
+
+void atirar(int *nave, int *tiro)
+{
+    if(tiro[1] == 15 && tiro[2] > 0)
+        PlaySoundA(TEXT("sounds/tiro.wav"), NULL, SND_ASYNC);
+    matriz[tiro[1]][tiro[0]]=' ';
+    if(tiro[2]==1&&tiro[1]>0)
+    {
+        tiro[1]--;
+        tiro[0]=nave[0];
+        matriz[tiro[1]][tiro[0]]='|';
+    }
+    else
+    {
+        tiro[0]=nave[0];
+        tiro[1]=nave[1];
+        tiro[2]=0;
+    }
+}
+
+/*
+int sorteiaIn(INIMIGOS *inimigo, int quant)
+{
+  srand (time(NULL));
+
+  int sorteio;
+  int i;
+  int j;
+
+ sorteio = rand() % quant;
+
+ for (i=0;i<sorteio;i++)
+ {
+    if (inimigo[i].status==1)
+      j=i;
+ }
+
+ return j;
+}
+
+void atirarIn(INIMIGOS inimigo, int *tiro)
+{
+    if(tiro[1] == 15 && tiro[2] > 0)
+        PlaySoundA(TEXT("sounds/tiro.wav"), NULL, SND_ASYNC);
+    matriz[tiro[1]][tiro[0]]=' ';
+    if(tiro[2]==1&&tiro[1]>0)
+    {
+        tiro[1]++;
+        tiro[0]=inimigo.posX;
+        matriz[tiro[1]][tiro[0]]='|';
+    }
+    else
+    {
+        tiro[0]=inimigo.posX;
+        tiro[1]=inimigo.posY;
+        tiro[2]=0;
+    }
+}
+
+int testa_tiroIn(INIMIGOS *nave, int quant, int *tiroIn)
+{
+  int i;
+  int flag=1;
+// tiro[1] == posY
+// tiro[0] == posX
+  for(i=0;i<quant;i++)
+  {
+      if(nave[1] == tiroIn[1] && nave[0]-2 <= tiroIn[0] && nave[0]+2 >= tiroIn[0])
+      {
+          nave[2] = 0;
+          flag=0;
+      }
+  }
+  return flag;
+}
+
+*/

@@ -20,3 +20,6 @@
 #define tiroPOSX 40
 #define tiroPOSY 17
 #define tiroStatus 0
+#define tiroInPOSX 10
+#define tiroInPOSY 10
+#define tiroInStatus 0

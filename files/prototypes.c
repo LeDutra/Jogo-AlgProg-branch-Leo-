@@ -1,7 +1,7 @@
 #include "header.c"
 #include "prototipo_inimigos.c"
 
-// Protótipos:
+// Protï¿½tipos:
 
 int tela_inicial();
 void posiciona_nave(int *pos, int deltaX);
@@ -20,5 +20,12 @@ void limpa_barra();
 void anima_barra(int *nave);
 int diminui_vida();
 void limpa_matriz();
-int le_inimigos(INIMIGOS *inimigo, char *nome);
+int le_inimigos(INIMIGOS *inimigo, char *nome, int *fase);
 void coloca_inimigos(INIMIGOS *inimigo, int quant);
+void imprime_inimigos(INIMIGOS *inimigo, int direcao, int quant);
+void posiciona_inimigos(INIMIGOS *inimigo, int *fase, int quant);
+int testa_tiro(INIMIGOS *inimigo, int quant, int *tiro, int pontos);
+int testa_inimigos(INIMIGOS *inimigo, int quant);
+int sorteiaIn(INIMIGOS *inimigo, int quant);
+void atirarIn(INIMIGOS inimigo, int *tiro);
+int testa_tiroIn(int *nave, int quant, int *tiroIn);

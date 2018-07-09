@@ -2,6 +2,7 @@
 #include "libraries/custom_bibl.h" // Biblioteca customizada por euzinho (Leo) que contém umas funções de cores e coisas E S T É T I C A S
 #include "prototypes.c" // Protótipos pra não ficar dando warning que a função é implicita
 
+
 int main()
 {
 
@@ -15,29 +16,40 @@ int main()
     int tempo, deltaTempo=0;
     int nave[3]= {navePOSX,navePOSY,naveDeltaVx};
     int tiro[3]= {tiroPOSX,tiroPOSY,tiroStatus};
+    int tiroIn[4]= {tiroInPOSX,tiroInPOSY,tiroInStatus,0};
+    int fase[3]= {0,0,1};
     int flag_quit = 1;
     int flag_morte = 1;
     int flag_pause = 0;
     int quant;
     char pause = 'a';
+    char nome_fase[15] = {"maps/map_1.txt"};
+    int num_fase=0;
+    int pontos=0;
     INIMIGOS inimigo[20];
-
-
-    quant=le_inimigos(inimigo,"maps/map_1.txt");
     tela_inicial();
+    num_fase++;
     do
     {
+        nome_fase[9]=num_fase+48;
+        quant=le_inimigos(inimigo,nome_fase,fase);
         anima_barra(nave);
-        coloca_inimigos(inimigo,quant);
         tempo=time(NULL);
-        while(deltaTempo<40&&flag_quit&&flag_morte)
+        while(deltaTempo<40&&flag_quit&&flag_morte&&testa_inimigos(inimigo, quant))
         {
+            posiciona_inimigos(inimigo,fase,quant);
             if(kbhit())
                 leitura_teclado(nave,tiro, &flag_quit, &flag_pause);
             else
                 movimenta(nave,0);
             atirar(nave,tiro);
+ //           if(tiroIn[2]==0)
+//                tiroIn[3]=sorteiaIn(inimigo,quant);
+//            atirarIn(inimigo[tiroIn[3]],tiroIn);
             posiciona_nave(nave,0);
+            pontos=testa_tiro(inimigo,quant,tiro,pontos);
+//            flag_morte=testa_tiroIn(nave,quant,tiroIn);
+            posiciona_inimigos(inimigo,fase,quant);
             deltaTempo=time(NULL)-tempo;
             ajusta_energia(deltaTempo);
             imprime_tela(deltaTempo);
@@ -67,12 +79,17 @@ int main()
             }
             if(deltaTempo == 35 || deltaTempo == 37 || deltaTempo == 39)
                 PlaySoundA(TEXT("sounds/alarm.wav"), NULL, SND_ASYNC);
-            Sleep(17);
+            Sleep(50);
         }
         if(deltaTempo>=40)
             PlaySoundA(TEXT("sounds/energy.wav"), NULL, SND_ASYNC);
         else if(flag_morte)
+        {
             PlaySoundA(TEXT("sounds/expl.wav"), NULL, SND_ASYNC);
+        }
+        if((flag_morte && diminui_vida()) || (deltaTempo>=40 && diminui_vida()))
+              flag_quit = 0;
+
         Sleep(2000);
         nave[0]= navePOSX;
         nave[1]= navePOSY;
@@ -86,8 +103,10 @@ int main()
         limpa_barra();
         deltaTempo = 0;
         flag_morte = 1;
+//        if (!testa_inimigos(inimigo, quant))
+//          num_fase++;
     }
-    while(diminui_vida()&&flag_quit);
+    while(flag_quit);
     if(flag_quit)
         tela_game_over();
     else

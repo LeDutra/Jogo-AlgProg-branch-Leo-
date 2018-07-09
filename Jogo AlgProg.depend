@@ -41,7 +41,7 @@
 1530214944 source:c:\users\leoto\desktop\v3\jogo algprog\tela_inicial.c
 	"functions.c"
 
-1530818435 source:c:\users\leoto\desktop\v3\jogo algprog\files\header.c
+1531101792 source:c:\users\leoto\desktop\v3\jogo algprog\files\header.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -57,12 +57,12 @@
 1530215793 source:c:\users\leoto\desktop\v3\jogo algprog\files\matriz.c
 	"header.c"
 
-1530975351 source:c:\users\leoto\desktop\v3\jogo algprog\files\main.c
+1531104732 source:c:\users\leoto\desktop\v3\jogo algprog\files\main.c
 	"header.c"
 	"libraries/custom_bibl.h"
 	"prototypes.c"
 
-1530818435 c:\users\leoto\desktop\v3\jogo algprog\files\header.c
+1531101792 c:\users\leoto\desktop\v3\jogo algprog\files\header.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
@@ -75,9 +75,9 @@
 	<io.h>
 	<mmsystem.h>
 
-1530211710 c:\users\leoto\desktop\v3\jogo algprog\files\libraries\custom_bibl.h
+1531000796 c:\users\leoto\desktop\v3\jogo algprog\files\libraries\custom_bibl.h
 
-1530974508 source:c:\users\leoto\desktop\v3\jogo algprog\files\tela_inicial.c
+1531000796 source:c:\users\leoto\desktop\v3\jogo algprog\files\tela_inicial.c
 	"header.c"
 	"prototypes.c"
 
@@ -86,11 +86,11 @@
 1530216002 source:c:\users\leoto\desktop\v3\jogo algprog\files\movimentacao.c
 	"header.c"
 
-1530818546 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
+1531104711 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
 	"header.c"
 	"prototipo_inimigos.c"
 
-1530818546 c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
+1531104711 c:\users\leoto\desktop\v3\jogo algprog\files\prototypes.c
 	"header.c"
 	"prototipo_inimigos.c"
 
@@ -100,14 +100,14 @@
 1530217826 source:c:\users\leoto\desktop\v3\jogo algprog\files\functions_and_matriz.c
 	"header.c"
 
-1530974517 source:c:\users\leoto\desktop\v3\jogo algprog\files\funcoes_e_matriz.c
+1531104749 source:c:\users\leoto\desktop\v3\jogo algprog\files\funcoes_e_matriz.c
 	"header.c"
 	"prototypes.c"
 
-1530223257 source:c:\users\leoto\desktop\v3\jogo algprog\files\game_over.c
+1531000796 source:c:\users\leoto\desktop\v3\jogo algprog\files\game_over.c
 	"header.c"
 
-1530818513 c:\users\leoto\desktop\v3\jogo algprog\files\prototipo_inimigos.c
+1531000796 c:\users\leoto\desktop\v3\jogo algprog\files\prototipo_inimigos.c
 
-1530818513 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototipo_inimigos.c
+1531000796 source:c:\users\leoto\desktop\v3\jogo algprog\files\prototipo_inimigos.c
 
